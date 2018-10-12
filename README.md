@@ -14,15 +14,15 @@ We have to look at a set of assumptions taking into consideration our resources,
 ## KEY FEATURES
 - We build a database based on the location data we receive from the sms' sent out by the people or which we receive from the user end of the app.
 - We *cluster* the population density using k-means. 
-- We optimally decide safe zones/Hotspots/Camps based on past disaster data, clustered population zones and the safety of a zone based on it's Altitude data, water level data and other quantitative parameters taken into consideration on the rescuer side of the application. 
+- We optimally decide *safe zones/Hotspots/Camps* based on past disaster data, clustered population zones and the safety of a zone based on it's Altitude data, water level data and other quantitative parameters taken into consideration on the rescuer side of the application. 
 - We decide red/danger zones based on data updated by both the users or rescuers if they see blockage or destruction of surroundings or routes. 
-- We make a SOS/urgent rescue feature that caters to a proiority accidents or someone stuck in an emergency and it will be directly sent to the rescuers.
-- We would build integration with a map services app which would help us marking unsafe zones, relief camps and safe routes for both the users as well as the rescuers. 
-- The app would give directions, safe and short routes to the users as well as send an urgent evacuation notification to users stuck in highly unsafe locations.
+- We make a *SOS/urgent rescue feature* that caters to a proiority accidents or someone stuck in an emergency and it will be directly sent to the rescuers.
+- We would build *integration with a map services app* which would help us *marking unsafe zones, relief camps and safe routes* for both the users as well as the rescuers. 
+- The app would give directions, safe and short routes to the users as well as send an urgent *evacuation notification* to users stuck in highly unsafe locations.
 
 ## IMPLEMENTATION
-- On the basis of the location data received by the people we would create a cluster of people in a diameter of about 5km. The stranded people would receive the location of nearest cluster center so that they can gather at a common point so that it makes easier for resecuers to reach them with a smaller manforce
-- The common point of gathering would be decided by the rescuers with help from the prediction based on current population clusters, altitude and water level data and hotspots(hospitals,helipad, resources). 
+- On the basis of the location data received by the people we would create a cluster of people in a diameter of about 5km. The stranded people would receive the location of nearest cluster center so that they can gather at a common point so that it makes easier for resecuers to reach them with a smaller manforce.
+- The common point of gathering would be decided by the rescuers with help from the prediction based on current population clusters, altitude and water level data and hotspots(hospitals,helipad, resources) and the nearest gathering point will be conveyed to the person through SMS which would be integrated with Bing Maps. 
 - The SOS feature is for the people who are trapped and cannot reach the safe locations without help from the rescuers. There location would be directly sent to the rescue operations team for immediate action.
 
 ![dataflow](https://user-images.githubusercontent.com/31070834/46861178-ae6d8d00-ce2f-11e8-8116-1b597a0d5a7c.png)
@@ -33,6 +33,9 @@ We have to look at a set of assumptions taking into consideration our resources,
 - Django/ Flask FrameWork in Python for Web-App
 - Scikit Learn/ PyTorch
 
-
-
-
+## CHALLENGES
+- Physical restraints to a rescuer based on resources and availability of manpower.
+- Time constraints on hotspots, routes and danger zone availabilities based on real-time problems like repetitive disasters
+- Route limitations based on the APIs used or algorithms! 
+- Danger zones and blockage on routes precision as well as precision of hotspots based on other clustering algorithms used based on the location data.
+- SOS can be sent out by people in distress or by those who are desperate but we need to no moral hazard to cater to emergencies first.
