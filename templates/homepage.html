@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SafeGuard</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet') }}">
+    <style>
+        .row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+.verticalLine {
+  border-left: 5px solid black;
+}
+    </style>
+</head>
+<body>
+    <h1 align="center">Welcome to safeGuard!</h1>
+    <div class="row">
+        <div class="column" align="center">
+            <h3>Users</h3>
+            <form action="/user" method="get" id="user"></form>
+            <button type="submit" form="user" value="SignIn">Log In</button>
+
+        </div>
+        <div class="verticalLine"></div>
+        <div class="column" align="center">
+            <h3>Rescue Operations</h3>
+            <form action="/rescueops" method="get" id="rescueops"></form>
+            <button type="submit" form="rescueops" value="SignIn">Log In</button>
+        </div>
+    </div>
+
+</body>
+</html>
