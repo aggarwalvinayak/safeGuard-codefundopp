@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {{map.js}}
     <meta charset="UTF-8">
     <title>Welcome!</title>
     <style>
@@ -33,7 +34,13 @@
     <div class="row">
         <div class="column left">
             <div id="map" align="center">
-                {{googlemap("RescueOps", lat=0.23234234, lng=-0.234234234, markers=[(0.12, -0.45345)], style="height:500px;width:850px;margin:0;")}}
+                {{map.html}}
+            </div>
+            <div id="legend" align="left">
+                <p style="background-color:red">RED: SOS Locations</p>
+                <p style="background-color:green">GREEN: Camp Locations</p>
+                <p style="background-color:yellow">YELLOW: Unsafe Locations</p>
+                <p style="background-color:blue">BLUE: Cluster Locations</p>
             </div>
         </div>
         <div class="verticalLine"></div>
@@ -46,34 +53,34 @@
 
 
             <p align="left">1. Set Camp location (Safest refuge).</p>
-            <form action="/rescueopsrecorded" method="get" id="SOS">
-                Latitude:<input type="number"><br>
-                Longitude:<input type="number">
+            <form action="/rescueopsrecorded" method="post" id="Camp">
+                Latitude:<input type="number" step="any" name="Camplat"><br>
+                Longitude:<input type="number" step="any" name="Camplng">
             </form>
             <br>
 
-            <button type="submit" form="SOS" value="SignIn">Set Camp</button>
+            <button type="submit" name="Camp" form="Camp" value="SignIn">Set Camp</button>
             <hr>
 
 
             <p align="left">2. Broadcast important notifications.</p>
-            <form action="/rescueopsrecorded" method="get" id="Unsafe">
-                Message:<input type="text" style="width:100%;"><br>
+            <form action="/rescueopsrecorded" method="post" id="Unsafe">
+                Message:<input type="text" style="width:100%;" name="Notif"><br>
             </form>
             <br>
 
-            <button type="submit" form="Unsafe" value="SignIn">Broadcast</button>
+            <button type="submit" name="Notif" form="Unsafe" value="SignIn">Broadcast</button>
             <hr>
 
 
             <p align="left">3. Mark location Unsafe.</p>
-            <form action="/rescueopsrecorded" method="get" id="MarkUnsafe">
-                Latitude:<input type="number"><br>
-                Longitude:<input type="number">
+            <form action="/rescueopsrecorded" method="post" id="MarkUnsafe">
+                Latitude:<input type="number" step="any" name="Marklat"><br>
+                Longitude:<input type="number" step="any" name="Marklng">
             </form>
             <br>
 
-            <button type="submit" form="MarkUnsafe" value="SignIn">Send Location</button>
+            <button type="submit" name="Mark" form="MarkUnsafe" value="sendLoc">Send Location</button>
             <hr>
             <br>
 
