@@ -21,7 +21,7 @@ def cluster(df):
     k = math.ceil(k1 * k2)
     # print(k)
 
-    kmeans = KMeans(n_clusters=k, random_state=0).fit(df1.iloc[:, 1:3])
+    kmeans = KMeans(n_clusters=5, random_state=0).fit(df1.iloc[:, 1:3])
     labelss = kmeans.labels_
     clus_centres = kmeans.cluster_centers_
     # print(clus_centres)
